@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>pathos</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7.5' fill='%23FFDF00'/%3E%3C/svg%3E">
+  <script src="theme.js?v=695c0562"></script>
+  <style>
+    :root {
+      color-scheme: dark;
+      scrollbar-gutter: stable both-edges;
+      --background: #000000;
+      --text: #f5f5f5;
+      --secondary: #a3a3a3;
+      --accent: #ffdf00;
+      --type-brand: 32px;
+      --type-service: 20px;
+      --type-meta: 14px;
+      --hover: rgb(255 223 0 / .08);
+      background: var(--background);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+      font-optical-sizing: auto;
+      -webkit-font-smoothing: antialiased;
+    }
+    :root[data-theme="light"] {
+      color-scheme: light;
+      --background: #ffffff;
+      --text: #161616;
+      --secondary: #666666;
+      --accent: #ffdf00;
+      --hover: rgb(255 223 0 / .12);
+    }
+    :root[data-theme="light"] a:focus-visible {
+      outline-color: var(--text);
+    }
+    [hidden] { display: none !important; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      padding: 40px 32px;
+    }
+    main {
+      width: min(100%, 440px);
+      transform: translateY(-24px);
+    }
+    h1 {
+      margin: 0 0 28px;
+      color: var(--text);
+      font-size: var(--type-brand);
+      font-weight: 500;
+      line-height: 38px;
+      letter-spacing: -.03em;
+      text-align: center;
+    }
+    nav {
+      width: 100%;
+    }
+    figure {
+      margin: 32px 0 0;
+      background: var(--accent);
+      isolation: isolate;
+    }
+    figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+      filter: invert(1);
+      mix-blend-mode: multiply;
+      opacity: .82;
+    }
+    a {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 20px 18px;
+      column-gap: 14px;
+      align-items: start;
+      padding: 18px 0;
+      color: inherit;
+      text-decoration: none;
+      transition: background-color 140ms ease-out;
+      -webkit-tap-highlight-color: rgb(255 223 0 / .08);
+    }
+    .name {
+      display: block;
+      font-size: var(--type-service);
+      font-weight: 400;
+      line-height: 26px;
+      letter-spacing: -.025em;
+    }
+    .description {
+      display: block;
+      margin-top: 6px;
+      color: var(--secondary);
+      font-size: var(--type-meta);
+      line-height: 20px;
+    }
+    .number {
+      justify-self: center;
+      margin-top: 8px;
+      color: #161616;
+      background: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent);
+      border-radius: 1px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px;
+      line-height: 16px;
+      font-variant-numeric: tabular-nums;
+    }
+    .arrow {
+      margin-top: 5px;
+      color: var(--secondary);
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 20px;
+      line-height: 22px;
+      transition: transform 140ms ease-out, color 140ms ease-out;
+    }
+    a:focus-visible {
+      background: var(--hover);
+      outline: 1px solid var(--accent);
+      outline-offset: 7px;
+    }
+    @media (hover: hover) {
+      a:hover { background: var(--hover); }
+      a:hover .arrow { color: var(--accent); transform: translateX(3px); }
+    }
+    .theme-picker {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      margin-top: 8px;
+      line-height: 20px;
+      color: var(--secondary);
+      font-size: var(--type-meta);
+    }
+    .theme-picker button {
+      appearance: none;
+      min-width: 76px;
+      min-height: 32px;
+      padding: 6px 10px;
+      border: 0;
+      background: none;
+      color: var(--secondary);
+      font: inherit;
+      line-height: 20px;
+      cursor: pointer;
+    }
+    .theme-picker button:hover,
+    .theme-picker button[aria-pressed="true"] { color: var(--text); }
+    .theme-picker button[aria-pressed="true"] {
+      text-decoration: underline;
+      text-underline-offset: 5px;
+      text-decoration-thickness: 3px;
+      text-decoration-color: var(--accent);
+    }
+    .theme-picker button:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+    @media (max-height: 400px) {
+      main { transform: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      a, .arrow { transition: none; }
+      a:hover .arrow { transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>pathos</h1>
+    <nav aria-label="Services">
+      <a href="https://lambda.pathos.su/">
+        <span><span class="name">lambda</span><span class="description">file swap</span></span>
+        <span class="number" aria-hidden="true">01</span>
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
+      <a href="https://delta.pathos.su/">
+        <span><span class="name">delta</span><span class="description">video downloader</span></span>
+        <span class="number" aria-hidden="true">02</span>
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
+    </nav>
+    <figure aria-hidden="true">
+      <picture>
+        <source media="(prefers-reduced-motion: reduce)" srcset="art.jpg">
+        <img src="art.gif" width="448" height="252" alt="" decoding="async">
+      </picture>
+    </figure>
+  <div class="theme-picker" role="group" aria-label="Theme" hidden>
+    <button type="button" data-theme="dark" aria-pressed="true">dark</button>
+    <span aria-hidden="true">/</span>
+    <button type="button" data-theme="light" aria-pressed="false">light</button>
+  </div>
+  </main>
+</body>
+</html>
